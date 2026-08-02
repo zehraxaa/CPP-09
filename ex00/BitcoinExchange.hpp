@@ -4,6 +4,7 @@
 #include <exception>
 #include <map>
 #include <string>
+#include <algorithm>
 #include <iostream>
 
 class BitcoinExchange
@@ -15,12 +16,18 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange& other);
 		BitcoinExchange& operator=(const BitcoinExchange& other);
 		~BitcoinExchange();
+
+		void processDataFile();
+		void processInputFile(std::string input);
+		bool isValidDate(const std::string& date) const;
+   		bool isValidValue(const std::string& val, float& out) const;
+    	void  printResult(const std::string& date, float value) const;
 		class DataFileNotFoundException : public std::exception
 		{
 			public:
 				const char* what() const throw();
 		};
-		class NegativeNumberException : public std::exception
+		class BadInputFileException : public std::exception
 		{
 			public:
 				const char* what() const throw();

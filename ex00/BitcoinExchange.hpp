@@ -4,6 +4,7 @@
 #include <exception>
 #include <map>
 #include <string>
+#include <cctype>
 #include <algorithm>
 #include <iostream>
 
@@ -20,7 +21,7 @@ class BitcoinExchange
 		void processDataFile();
 		void processInputFile(std::string input);
 		bool isValidDate(const std::string& date) const;
-   		bool isValidValue(const std::string& val, float& out) const;
+   		bool isValidValue(const std::string& val, float& rank) const;
     	void  printResult(const std::string& date, float value) const;
 		class DataFileNotFoundException : public std::exception
 		{

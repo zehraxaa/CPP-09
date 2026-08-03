@@ -2,7 +2,6 @@
 
 int main(int argc, char** argv)
 {
-	(void)argv;
 	if (argc != 2)
 	{
 		std::cout<<"Error: Incorrect number of arguments"<<std::endl;
@@ -12,7 +11,7 @@ int main(int argc, char** argv)
 	try
 	{
 		obj.processDataFile();
-		//obj.processInputFile(argv[1]);
+		obj.processInputFile(argv[1]);
 	}
 	catch(std::exception &e)
 	{
